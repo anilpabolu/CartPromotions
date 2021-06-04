@@ -49,5 +49,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PromotionEngine\PromotionEngine.csproj">
+      <Project>{7e3e800b-2c71-4621-bc1b-69110dd34896}</Project>
+      <Name>PromotionEngine</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
