@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="ConfigDetails.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Content\" />
   </ItemGroup>
 

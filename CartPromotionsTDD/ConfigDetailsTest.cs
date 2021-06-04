@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using NUnit.Framework;
-using PromotionEngine;
 using PromotionEngine.Models;
+using PromotionEngine.Database;
 
 namespace CartPromotionsTDD
 {
@@ -10,12 +10,14 @@ namespace CartPromotionsTDD
         [SetUp]
         public void Setup()
         {
+            
         }
 
         [Test]
         public void GetPromotionlOffersTest()
         {
-            var actualResult = ConfigDetails.GetPromotionlOffers();
+            IConfigDetails<PromotionalOfferModel> getConfig = new PromotionlOffers();
+            var actualResult = getConfig.Get();
 
 
             var expectedResult = new List<PromotionalOfferModel>
@@ -44,7 +46,9 @@ namespace CartPromotionsTDD
         public void GetComboOffersTest()
         {
 
-            var actualResult = ConfigDetails.GetComboOffers();
+           
+            IConfigDetails<ComboOffersModel> getConfig = new ComboOffers();
+            var actualResult = getConfig.Get();
 
 
             var expectedResult = new List<ComboOffersModel>
@@ -64,7 +68,9 @@ namespace CartPromotionsTDD
         [Test]
         public void GetAvaliableProductDetailsTest()
         {
-            var actualResult = ConfigDetails.GetAvailableProducts();
+           
+            IConfigDetails<Product> getConfig = new Products();
+            var actualResult = getConfig.Get();
 
             var expectedResult = new List<Product>
             {
