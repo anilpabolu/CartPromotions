@@ -74,12 +74,13 @@ namespace CartPromotionsTDD
 
             var expectedResult = new List<Product>
             {
-                new Product{Sku= "A", ProductName= "ProductA",Price =50 },
+                new Product{Sku= "A", ProductName= "ProductA",Price =50, Recursive = false},
             };
 
             Assert.AreEqual(expectedResult[0].Sku[0], actualResult[0].Sku[0]);
             Assert.AreEqual(expectedResult[0].ProductName[0], actualResult[0].ProductName[0]);
             Assert.AreEqual(expectedResult[0].Price, actualResult[0].Price);
+            Assert.AreEqual(expectedResult[0].Recursive, actualResult[0].Recursive);
 
 
         }

@@ -45,7 +45,7 @@ namespace PromotionEngine.Helper
                 if (itemOffer != null)
                 {
 
-                    item.DiscountedPrice = GetPrice(count, itemOffer, products.Find(n => n.Sku == item.Sku).Price);
+                    item.DiscountedPrice = GetPrice(count, itemOffer, products.Find(n => n.Sku == item.Sku).Price, products.Find(n => n.Sku == item.Sku).Recursive);
                     isPromotionalOfferApplied = true;
                 }
                 else
@@ -67,15 +67,23 @@ namespace PromotionEngine.Helper
             return Math.Abs(count * price);
         }
 
-        private static double GetPrice(int count, PromotionalOfferModel itemOffer, float itemPrice)
+        private static double GetPrice(int count, PromotionalOfferModel itemOffer, float itemPrice, bool isRecursive)
         {
 
             float totalItemPrice;
 
             if (count >= itemOffer.MinQty)
             {
+                float discountPrice = 0;
+                var counter = count;
+                do
+                {
+                    discountPrice += ((itemOffer.MinQty * itemPrice) * itemOffer.DiscPercentage / 100);
 
-                var discountPrice = ((itemOffer.MinQty * itemPrice) * itemOffer.DiscPercentage / 100);
+                    counter -= itemOffer.MinQty;
+
+                } while (counter >= itemOffer.MinQty && isRecursive);
+
                 totalItemPrice = (count * itemPrice) - discountPrice;
             }
             else

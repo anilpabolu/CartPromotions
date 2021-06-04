@@ -3,22 +3,26 @@
     {
       "Sku": "A",
       "ProductName": "ProductA",
-      "Price": "50"
+      "Price": "50",
+      "Recursive": false
     },
     {
       "Sku": "B",
       "ProductName": "ProductB",
-      "Price": "30"
+      "Price": "30",
+      "Recursive": true
     },
     {
       "Sku": "C",
       "ProductName": "ProductC",
-      "Price": "20"
+      "Price": "20",
+      "Recursive": false
     },
     {
       "Sku": "D",
       "ProductName": "ProductD",
-      "Price": "15"
+      "Price": "15",
+      "Recursive": false
     }
   ]
 }

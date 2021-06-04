@@ -8,6 +8,7 @@ namespace PromotionEngine.Models
         public string Sku { get; set; }
         public string ProductName { get; set; }
         public float Price { get; set; }
+        public bool Recursive { get; set; }
     }
 
     public class ProductMaster
