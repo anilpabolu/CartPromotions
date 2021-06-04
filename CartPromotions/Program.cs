@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using PromotionEngine;
 using PromotionEngine.Database;
 using PromotionEngine.Helper;
 using PromotionEngine.Models;
@@ -14,7 +16,6 @@ namespace CartPromotions
             IConfigDetails<Product> getConfig = new Products();
             var productList = getConfig.Get();
 
-           // var productList = ConfigDetails.GetAvailableProducts();
 
             var cart = new List<Product>();
 
@@ -61,7 +62,37 @@ namespace CartPromotions
 
             } while (ReadLine()?.ToUpper() == ("Y"));
 
-            //BillingSUmmary(productList, cart);
+
+            WriteLine("Thank you for shopping");
+
+            var printBillingSUmmary = BillingSUmmary(productList, cart);
+
+            WriteLine("SKU\t\t Quantity\t\t Price");
+            WriteLine("---------------------------------------------------");
+
+            double grandTotal = 0;
+            foreach (var item in printBillingSUmmary)
+            {
+
+                grandTotal += item.DiscountedPrice;
+                WriteLine(item.Sku + "\t\t" + item.Qty + "\t\t" + item.DiscountedPrice);
+
+            }
+            WriteLine("---------------------------------------------------");
+            WriteLine("Grand Total--------------------------------> " + grandTotal);
+        }
+
+        public static List<BillingProduct> BillingSUmmary(List<Product> productList, List<Product> cartproducts)
+        {
+            try
+            {
+                return Promotions.ApplyOffers(productList, cartproducts);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
         }
     }
 }
