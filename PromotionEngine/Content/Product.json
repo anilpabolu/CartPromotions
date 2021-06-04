@@ -1,0 +1,24 @@
+{
+  "Products": [
+    {
+      "Sku": "A",
+      "ProductName": "ProductA",
+      "Price": "50"
+    },
+    {
+      "Sku": "B",
+      "ProductName": "ProductB",
+      "Price": "30"
+    },
+    {
+      "Sku": "C",
+      "ProductName": "ProductC",
+      "Price": "20"
+    },
+    {
+      "Sku": "D",
+      "ProductName": "ProductD",
+      "Price": "15"
+    }
+  ]
+}

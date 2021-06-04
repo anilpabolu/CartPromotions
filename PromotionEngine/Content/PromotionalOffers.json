@@ -1,0 +1,19 @@
+{
+  "PromotionalOffers": [
+    {
+      "Sku": "A",
+      "MinQty": "3",
+      "discPercentage": "13.5"
+    },
+    {
+      "Sku": "B",
+      "MinQty": "2",
+      "discPercentage": "25"
+    },
+    {
+      "Sku": "E",
+      "MinQty": "2",
+      "DiscPercentage": "5"
+    }
+  ]
+}

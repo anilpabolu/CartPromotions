@@ -1,0 +1,10 @@
+{
+  "ComboOffers": [
+    {
+      "Skus": [ "C", "D" ],
+      "MinQty": [ "1", "1" ],
+      "ComboDiscount": "5",
+      "ComboDiscountType": "Rupees"
+    }
+  ]
+}
